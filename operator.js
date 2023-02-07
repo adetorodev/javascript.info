@@ -28,3 +28,27 @@ let orangesA = "3";
 console.log( +applesA + +orangesA ); // 5
 // the longer variant
 // console.log( Number(applesA) + Number(orangesA) ); // 5
+
+// Bitwise operators
+// The list of operators:
+// ● AND ( & )
+// ● OR ( | )
+// ● XOR ( ^ )
+// ● NOT ( ~ )
+// ● LEFT SHIFT ( << )
+// ● RIGHT SHIFT ( >> )
+// ● ZERO-FILL RIGHT SHIFT ( >>> )
+
+// Comma
+// let a = (1 + 2, 3 + 4);
+// console.log(a)
+
+// let a = 1, b = 1;
+// let c = ++a; // ?
+// let d = b++; // ?
+// console.log(c)
+// console.log(d)
+
+let a = 2;
+let x = 1 + (a *= 2);
+console.log(x)
