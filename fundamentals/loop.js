@@ -59,3 +59,13 @@ if (j < 3) { console.log(j); j++ }
 // if condition → run body and run step
 if (j < 3) { console.log(j); i++ }
 // ...finish, because now j == 3
+
+// skipping part
+
+let g = 0; // we have i already declared and assigned
+for (; g < 3; i++) { // no need for "begin"
+console.log( g ); // 0, 1, 2
+}
+
+// Break
+
