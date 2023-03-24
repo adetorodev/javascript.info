@@ -1,0 +1,61 @@
+// **********************
+// * WHile and for Loop  *
+// **********************
+
+// while (condition) {
+//Code
+// Loop body
+// }
+
+let i = 0;
+while (i < 3) {
+  console.log(i);
+  i++;
+}
+
+// OR
+
+while (i) {
+  console.log(i);
+  i--;
+}
+// when i becomes 0, the condition becomes falsy, and the loop stops
+
+// let i = 3;
+// while (i) alert(i--)
+
+
+// do ... while loop
+
+// do {
+//     // loop body
+// } while(consition)
+
+let k = 0
+do {
+    console.log(k)
+    k++
+} while( k < 3)
+
+// the do ...while loop should be use when you want the loop to execute once. 
+
+//  For Loop
+// for(begin, condition, step){
+//     loop body
+// }
+
+for(let j=0; j < 3; j++){
+    console.log(j)
+}
+
+// Here’s exactly what happens in our case:
+// for (let j = 0; j < 3; i++) console.log(j)
+// run begin
+let j = 0
+// if condition → run body and run step
+if (j < 3) { console.log(j); j++ }
+// if condition → run body and run step
+if (j < 3) { console.log(j); j++ }
+// if condition → run body and run step
+if (j < 3) { console.log(j); i++ }
+// ...finish, because now j == 3
