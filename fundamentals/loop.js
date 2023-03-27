@@ -80,12 +80,11 @@ for (; g < 3; i++) {
 
 let sum = 0;
 while (true) {
-  let value = 8
+  let value = 8;
   if (!value) break; // (*)
   sum += value;
 }
 console.log("Sum: " + sum);
-
 
 // continue
 
@@ -93,4 +92,4 @@ for (let y = 0; y < 10; y++) {
   // if true, skip the remaining part of the body
   if (y % 2 == 0) continue;
   console.log(y); // 1, then 3, 5, 7, 9
-  }
+}
