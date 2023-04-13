@@ -26,4 +26,21 @@
 // console.log(userName); // John before the function call
 // showMessage();
 
+// Parameters
 
+function showMessage(from, text) {
+  // arguments: from, text
+  console.log(from + ": " + text);
+}
+showMessage("Ann", "Hello!"); // Ann: Hello! (*)
+showMessage("Ann", "What's up?"); // Ann: What's up? (**)
+
+function showMessageb(from, text) {
+  from = "*" + from + "*"; // make "from" look nicer
+  console.log(from + ": " + text);
+}
+
+let from = "Ann";
+showMessageb(from, "Hello"); // *Ann*: Hello
+// the value of "from" is the same, the function modified a local copy
+console.log(from); // Ann
