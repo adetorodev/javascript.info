@@ -44,3 +44,33 @@ let from = "Ann";
 showMessageb(from, "Hello"); // *Ann*: Hello
 // the value of "from" is the same, the function modified a local copy
 console.log(from); // Ann
+
+// Returning a value
+
+function sum(a, b) {
+  return a + b;
+}
+let result = sum(1, 2);
+console.log(result); // 3
+
+let age = 20;
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm("Do you have permission from your parents?");
+  }
+}
+
+// If a function does not return a value, it is the same as if it returns undefined :
+
+function doNothing() {
+  /* empty */
+}
+console.log(doNothing() === undefined); // true
+
+// An empty return is also the same as return undefined :
+function doNothing() {
+  return;
+}
+console.log(doNothing() === undefined); // true
