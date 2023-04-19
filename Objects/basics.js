@@ -11,3 +11,7 @@ let user = {
 // get fields of the object:
 console.log( user.name ); // John
 console.log( user.age ); // 30
+
+user.isAdmin = true;
+
+delete user.age;
