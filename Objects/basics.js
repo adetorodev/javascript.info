@@ -29,3 +29,6 @@ console.log(user["likes birds"]); // true
 // delete
 delete user["likes birds"];
 
+let key = "likes birds";
+// same as user["likes birds"] = true;
+user[key] = true;
