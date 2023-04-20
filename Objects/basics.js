@@ -39,14 +39,24 @@ let bag = {
 };
 console.log(bag.apple); // 5 if fruit="apple"
 
-let obj = {
-  for: 1,
-  let: 2,
-  return: 3,
-};
-console.log(obj.for + obj.let + obj.return);
-// 6
+// let obj = {
+//   for: 1,
+//   let: 2,
+//   return: 3,
+// };
+// console.log(obj.for + obj.let + obj.return);
+// // 6
 
-let obj = {};
-obj.__proto__ = 5;
-alert(obj.__proto__); // [object Object], didn't work as intended
+// let obj = {};
+// obj.__proto__ = 5;
+// console.log(obj.__proto__); // [object Object], didn't work as intended
+
+function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,
+    // ...other properties
+  };
+}
+let user = makeUser("John", 30);
+console.log(user.name); // John
