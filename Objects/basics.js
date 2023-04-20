@@ -15,8 +15,17 @@ let userB = {}; // "object literal" syntax
 
 // delete user.age;
 
-let user = {
-  name: "John",
-  age: 30,
-  "likes birds": true,
-};
+// let user = {
+//   name: "John",
+//   age: 30,
+//   "likes birds": true,
+// };
+
+let user = {};
+// set
+user["likes birds"] = true;
+// get
+console.log(user["likes birds"]); // true
+// delete
+delete user["likes birds"];
+
