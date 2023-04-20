@@ -38,3 +38,11 @@ let bag = {
   [fruit]: 5, // the name of the property is taken from the variable fruit
 };
 console.log(bag.apple); // 5 if fruit="apple"
+
+let obj = {
+  for: 1,
+  let: 2,
+  return: 3,
+};
+console.log(obj.for + obj.let + obj.return);
+// 6
