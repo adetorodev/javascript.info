@@ -46,3 +46,7 @@ let obj = {
 };
 console.log(obj.for + obj.let + obj.return);
 // 6
+
+let obj = {};
+obj.__proto__ = 5;
+alert(obj.__proto__); // [object Object], didn't work as intended
