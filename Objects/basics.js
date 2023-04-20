@@ -21,14 +21,20 @@ let userB = {}; // "object literal" syntax
 //   "likes birds": true,
 // };
 
-let user = {};
-// set
-user["likes birds"] = true;
-// get
-console.log(user["likes birds"]); // true
-// delete
-delete user["likes birds"];
+// let user = {};
+// // set
+// user["likes birds"] = true;
+// // get
+// console.log(user["likes birds"]); // true
+// // delete
+// delete user["likes birds"];
 
-let key = "likes birds";
-// same as user["likes birds"] = true;
-user[key] = true;
+// let key = "likes birds";
+// // same as user["likes birds"] = true;
+// user[key] = true;
+
+let fruit = prompt("Which fruit to buy?", "apple");
+let bag = {
+  [fruit]: 5, // the name of the property is taken from the variable fruit
+};
+console.log(bag.apple); // 5 if fruit="apple"
