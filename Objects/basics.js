@@ -174,3 +174,34 @@
 // // error can't re-assign
 
 // console.log(user);
+
+// Cloning and merging, Object.assign
+
+// let user = {
+//   name: "John",
+//   age: 30
+// }
+
+// let clone = {}
+
+// for (let key in user){
+//   clone[key] = user[key]
+// }
+// // clone is fully independent
+// console.log(clone);
+// clone.name = "pete"
+// console.log(clone);
+// console.log(user);
+
+// we can also use object.assign for it
+//  Object.assign(dest, [src1, src2, src3 ... ])
+
+// Object.assign(clone, user)
+// console.log(clone);
+
+// let user = { name: "John" };
+// let permissions1 = { canView: true };
+// let permissions2 = { canEdit: true };
+// copies all properties from permissions1 and permissions2 into user
+// Object.assign(user, permissions1, permissions2);
+// now user = { name: "John", canView: true, canEdit: true }
