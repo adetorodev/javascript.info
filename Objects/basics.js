@@ -74,9 +74,26 @@
 // console.log("blabla" in user);
 // console.log("John" in user);
 
-let obj = {
-  test: undefined
+// let obj = {
+//   test: undefined
+// }
+
+// console.log(obj.test);
+// console.log("test" in obj);
+
+// for..in loop
+
+// for(key in object){
+//   // code to execute
+// }
+
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
 }
 
-console.log(obj.test);
-console.log("test" in obj);
+for(let key in user){
+  console.log(key, ":", user[key]);
+  // console.log(user[key]);
+}
