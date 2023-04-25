@@ -120,13 +120,31 @@
 //   console.log(prop);
 // }
 
-let Phonecodes = {
-  "+49": "Germany",
-  "+41": "Switzerland",
-  "+44": "Great Britain",
-  "+1": "USA",
-};
+// let Phonecodes = {
+//   "+49": "Germany",
+//   "+41": "Switzerland",
+//   "+44": "Great Britain",
+//   "+1": "USA",
+// };
 
-for(let code in Phonecodes){
-  console.log(code);
-}
+// for(let code in Phonecodes){
+//   console.log(code);
+// }
+
+// Coping by reference
+// objects are stored and copied “by reference”
+
+// A variable stores not the object itself, but its
+//  “address in memory”, in other words “a reference” to it.
+
+let user = { name: "John"}
+
+// When an object variable is copied – the reference is copied, 
+// the object is not duplicated.
+
+let admin = user
+
+admin.name = "Pete"
+
+console.log(user.name);
+
