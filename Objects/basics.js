@@ -137,14 +137,25 @@
 // A variable stores not the object itself, but its
 //  “address in memory”, in other words “a reference” to it.
 
-let user = { name: "John"}
+// let user = { name: "John"}
 
 // When an object variable is copied – the reference is copied, 
 // the object is not duplicated.
 
-let admin = user
+// let admin = user
 
-admin.name = "Pete"
+// admin.name = "Pete"
 
-console.log(user.name);
+// console.log(user.name);
+
+// Comparison by reference
+// The equality == and strict equality === operators for objects work exactly the same.
+// let a = {}
+// let b = a
+// console.log(a == b);
+// console.log(a === b);
+
+
+// Const object
+// An object declared as const can be changed.
 
