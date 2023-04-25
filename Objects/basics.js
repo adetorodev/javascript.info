@@ -238,4 +238,3 @@ function multiplyNumeric(obj){
     }
   }
 }
-console.log(multiplyNumeric(menu));
