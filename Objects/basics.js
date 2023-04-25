@@ -159,3 +159,18 @@
 // Const object
 // An object declared as const can be changed.
 
+// const user = {
+//   name: "John"
+// }
+// user.age = 25
+// console.log(user.age);
+// console.log(user);
+
+// const fixes the value of user itself
+// And here user stores the reference to the same object all the time
+// user = {
+//   name: "Pete"
+// }
+// // error can't re-assign
+
+// console.log(user);
