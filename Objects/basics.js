@@ -139,7 +139,7 @@
 
 // let user = { name: "John"}
 
-// When an object variable is copied – the reference is copied, 
+// When an object variable is copied – the reference is copied,
 // the object is not duplicated.
 
 // let admin = user
@@ -154,7 +154,6 @@
 // let b = a
 // console.log(a == b);
 // console.log(a === b);
-
 
 // Const object
 // An object declared as const can be changed.
@@ -205,3 +204,38 @@
 // copies all properties from permissions1 and permissions2 into user
 // Object.assign(user, permissions1, permissions2);
 // now user = { name: "John", canView: true, canEdit: true }
+
+// exercise
+
+// const user = {
+//   name: "John"
+// }
+
+// user.name = "Pete"
+// console.log(user.name);
+
+// let salaries = {
+//   john: 180,
+//   ann: 160,
+//   pete: 130,
+// };
+// let sum = 0;
+// for (let key in salaries) {
+//   sum += salaries[key];
+// }
+// console.log(sum);
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My Menu"
+}
+
+function multiplyNumeric(obj){
+  for(let key in obj){
+    if(typeof obj[key] == "number"){
+      obj[key] *= 2
+    }
+  }
+}
+console.log(multiplyNumeric(menu));
