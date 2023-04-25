@@ -61,7 +61,6 @@
 // let user = makeUser("John", 30);
 // console.log(user.name); // John
 
-
 // let user = {}
 // console.log(user.noSuchProperty === undefined);
 
@@ -87,13 +86,47 @@
 //   // code to execute
 // }
 
-let user = {
-  name: "John",
-  age: 30,
-  isAdmin: true
-}
+// let user = {
+//   name: "John",
+//   age: 30,
+//   isAdmin: true,
+// };
 
-for(let key in user){
-  console.log(key, ":", user[key]);
-  // console.log(user[key]);
+// for (let key in user) {
+//   console.log(key, ":", user[key]);
+//   // console.log(user[key]);
+// }
+
+// Ordered like an object
+
+// let codes = {
+//   49: "Germany",
+//   41: "Switzerland",
+//   44: "Great Britain",
+//   1: "USA",
+// };
+
+// for(let code in codes){
+//   console.log(code);
+// }
+
+// let user = {
+//   name: "John",
+//   surname: "Smith"
+// }
+
+// user.age = 25
+// for(let prop in user){
+//   console.log(prop);
+// }
+
+let Phonecodes = {
+  "+49": "Germany",
+  "+41": "Switzerland",
+  "+44": "Great Britain",
+  "+1": "USA",
+};
+
+for(let code in Phonecodes){
+  console.log(code);
 }
