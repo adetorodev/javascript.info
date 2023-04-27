@@ -21,17 +21,30 @@
 
 // this is not bound
 
-let user = { name: "John" };
-let admin = { name: "Admin" };
-function sayHi() {
-  console.log(this.name);
-}
+// let user = { name: "John" };
+// let admin = { name: "Admin" };
+// function sayHi() {
+//   console.log(this.name);
+// }
 
-user.f = sayHi;
-admin.f = sayHi;
+// user.f = sayHi;
+// admin.f = sayHi;
 
 // these calls have different this
 // "this" inside the function is the object "before the dot"
-user.f(); // John (this == user)
-admin.f(); // Admin (this == admin)
-admin["f"](); // Admin (dot or square brackets access the method – doesn't matter)
+// user.f(); // John (this == user)
+// admin.f(); // Admin (this == admin)
+// admin["f"](); // Admin (dot or square brackets access the method – doesn't matter)
+
+let user = {
+  name: "John",
+  hi() {
+    console.log(this.name);
+  },
+  bye() {
+    console.log("Bye");
+  },
+};
+user.hi(); // John (the simple call works)
+// now let's call user.hi or user.bye depending on the name
+(user.name == "John" ? user.hi : user.bye)(); // Error!
