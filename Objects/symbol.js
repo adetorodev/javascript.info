@@ -38,3 +38,13 @@
 // for (let key in user) console.log(key); // name, age (no symbols)
 // // the direct access by the symbol works
 // console.log("Direct: " + user[id]);
+
+
+// Gobal Symbol
+
+// let id = Symbol("id")
+// Read it from another part of the code
+// let isAgain = Symbol.for("id")
+
+// the same symbol agian
+// console.log(id === isAgain);
