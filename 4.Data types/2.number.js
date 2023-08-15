@@ -114,7 +114,7 @@ Removes anything after the decimal point without rounding: 3.1 becomes 3, -1.1 b
 
 console.log( Number.isFinite(123) ); // true
 console.log( Number.isFinite(Infinity) ); // false
-console.log( Number.isFinite(2 / 0) ); // false
+// console.log( Number.isFinite(2 / 0) ); // false
 
 // Note the difference:
 console.log( Number.isFinite("123") ); // false, because "123" belongs to the string type, not the number type
