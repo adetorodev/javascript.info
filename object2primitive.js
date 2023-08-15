@@ -28,24 +28,56 @@
 }
 **/
 
-let user = {
-  name: "John",
-  money: 1000,
-  [Symbol.toPrimitive](hint) {
-    console.log(`hint: ${hint}`);
-    return hint == "string" ? `{name: "${this.name}"}` : this.money;
-  },
-};
+// let user = {
+//   name: "John",
+//   money: 1000,
+//   [Symbol.toPrimitive](hint) {
+//     console.log(`hint: ${hint}`);
+//     return hint == "string" ? `{name: "${this.name}"}` : this.money;
+//   },
+// };
 
 // console.log(user)
 // console.log(+user)
 // console.log(user + 500)
 
-let userA = {
-  name: "John",
+// let userA = {
+//   name: "John",
+//   toString() {
+//     return this.name;
+//   },
+// };
+// console.log(userA); // toString -> John
+// console.log(userA + 500); // toString -> John500
+
+// Further operations
+
+// Mathematical operations (except binary plus)
+// perform ToNumber conversion:
+
+// let obj = {
+//   toString() {
+// toString handles all conversions in the absence of other methods
+//     return "2";
+//   },
+// };
+// console.log(obj * 2); // 4, ToPrimitive gives "2", then it becomes 2
+
+// Binary plus checks the primitive – if it’s a
+// string, then it does concatenation, otherwise it
+// performs ToNumber and works with numbers
+
+// let obj = {
+//   toString() {
+//     return "2";
+//   },
+// };
+// console.log(obj + 2); // 22 (ToPrimitive returned string => concatenation)
+
+let obj = {
   toString() {
-    return this.name;
+    return true;
   },
 };
-console.log(userA); // toString -> John
-console.log(userA + 500); // toString -> John500
+console.log(obj + 2); // 3 (ToPrimitive returned boolean, 
+// not string => ToNumber)
