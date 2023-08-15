@@ -81,10 +81,41 @@ Removes anything after the decimal point without rounding: 3.1 becomes 3, -1.1 b
 
 // Imprecise calculations
 
-console.log( 1e500 ); // Infinity
-console.log( 0.1 + 0.2 == 0.3 ); // false
-console.log( 0.1 + 0.2 ); // 0.30000000000000004
-let sum = 0.1 + 0.2;
-console.log( sum.toFixed(2) ); // "0.30"
-let sumFixed = 0.1 + 0.2;
-console.log( +sumFixed.toFixed(2) ); // 0.3
+// console.log( 1e500 ); // Infinity
+// console.log( 0.1 + 0.2 == 0.3 ); // false
+// console.log( 0.1 + 0.2 ); // 0.30000000000000004
+// let sum = 0.1 + 0.2;
+// console.log( sum.toFixed(2) ); // "0.30"
+// let sumFixed = 0.1 + 0.2;
+// console.log( +sumFixed.toFixed(2) ); // 0.3
+
+// Tests: isFinite and isNaN
+
+// console.log( isNaN(NaN) ); // true
+// console.log( isNaN("str") ); // true
+// console.log( NaN === NaN ); // false
+// console.log( isFinite("15") ); // true
+// console.log( isFinite("str") ); // false, because a special value: NaN
+// console.log( isFinite(Infinity) ); // false, because a special value: Infinity
+
+// Number.isNaN(value) returns true if the argument 
+// belongs to the number type and it is NaN. In any other case it returns false.
+
+// console.log( Number.isNaN(NaN) ); // true
+// console.log( Number.isNaN("str" / 2) ); // true
+
+// Note the difference:
+// console.log( Number.isNaN("str") ); // false, because "str" belongs to the string type, not the number type
+// console.log( isNaN("str") ); // true, because isNaN converts string "str" into a number and gets NaN as a result of this conversion
+
+// Number.isFinite(value) returns true if the 
+ //argument belongs to the number type and it is not 
+ //NaN/Infinity/-Infinity. In any other case it returns false.
+
+console.log( Number.isFinite(123) ); // true
+console.log( Number.isFinite(Infinity) ); // false
+console.log( Number.isFinite(2 / 0) ); // false
+
+// Note the difference:
+console.log( Number.isFinite("123") ); // false, because "123" belongs to the string type, not the number type
+console.log( isFinite("123") ); // true, because isFinite converts string "123" into a number 123
