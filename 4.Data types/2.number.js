@@ -21,3 +21,15 @@
 
 // // an example with a bigger number
 // 1234e-2 === 1234 / 100; // 12.34, decimal point moves 2 times
+
+// Hex, binary and octal numbers
+
+// Hexadecimal numbers are widely used in JavaScript 
+// to represent colors, encode characters, and for many other things
+
+console.log( 0xff ); // 255
+console.log( 0xFF ); // 255 (the same, case doesn't matter)
+let a = 0b11111111; // binary form of 255
+let b = 0o377; // octal form of 255
+
+console.log( a == b ); // true, the same number 255 at both sides
