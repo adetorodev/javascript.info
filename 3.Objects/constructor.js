@@ -46,9 +46,26 @@ isAdmin: false
 // }
 // console.log(new BigUser().name); // Godzilla, got that object ^^
 
-function SmallUser() {
-  this.name = "John";
-  return; // finishes the execution, returns this
-  // ...
+// function SmallUser() {
+//   this.name = "John";
+//   return; // finishes the execution, returns this
+//   // ...
+// }
+// console.log(new SmallUser().name); // John
+
+// Methods in constructor
+
+function User(name) {
+  this.name = name;
+  this.sayHi = function () {
+    console.log("My name is: " + this.name);
+  };
 }
-console.log(new SmallUser().name); // John
+let john = new User("John");
+john.sayHi(); // My name is: John
+/*
+john = {
+    name: "John",
+    sayHi: function() { ... }
+}
+*/
