@@ -68,13 +68,23 @@ Math.trunc (not supported by Internet Explorer)
 Removes anything after the decimal point without rounding: 3.1 becomes 3, -1.1 becomes -1.
 */
 
-let num = 1.23456;
+// let num = 1.23456;
 
-console.log( Math.round(num * 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
+// console.log( Math.round(num * 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
 
-let numA = 12.34;
-console.log( numA.toFixed(1) ); // "12.3"
-let numB = 12.36;
-console.log( numB.toFixed(1) ); // "12.4"
-let numC = 12.34;
-console.log( numC.toFixed(5) ); // "12.34000", added zeroes to make exactly 5 digits
+// let numA = 12.34;
+// console.log( numA.toFixed(1) ); // "12.3"
+// let numB = 12.36;
+// console.log( numB.toFixed(1) ); // "12.4"
+// let numC = 12.34;
+// console.log( numC.toFixed(5) ); // "12.34000", added zeroes to make exactly 5 digits
+
+// Imprecise calculations
+
+console.log( 1e500 ); // Infinity
+console.log( 0.1 + 0.2 == 0.3 ); // false
+console.log( 0.1 + 0.2 ); // 0.30000000000000004
+let sum = 0.1 + 0.2;
+console.log( sum.toFixed(2) ); // "0.30"
+let sumFixed = 0.1 + 0.2;
+console.log( +sumFixed.toFixed(2) ); // 0.3
