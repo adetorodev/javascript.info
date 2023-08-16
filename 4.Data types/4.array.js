@@ -50,3 +50,22 @@
 
 
 // Internals
+
+// let fruits = ['Banana']
+// let arr = fruits // copy by reference,
+// two variable refernec the same array
+// console.log(arr === fruits)
+// arr.push('pear')
+// console.log(fruits)
+
+// let fruits = []
+// fruits[9999] = 5;
+// fruits.age = 24;
+// console.log(fruits)
+// console.log(fruits.length)
+
+// The ways to misuse an array:
+
+// Add a non-numeric property like arr.test = 5.
+// Make holes, like: add arr[0] and then arr[1000] (and nothing between them).
+// Fill the array in the reverse order, like arr[1000], arr[999] and so on.
