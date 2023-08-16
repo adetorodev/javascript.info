@@ -48,6 +48,42 @@
 
 // This is better
 
-let str = 'Hi';
-str = 'h' + str[1]; // replace the string
-console.log( str ); // hi
+// let str = 'Hi';
+// str = 'h' + str[1]; // replace the string
+// console.log( str ); // hi
+
+// Searching for a substring
+// str.indexOf
+// let str = 'Widget with id';
+// console.log( str.indexOf('Widget') ); // 0, because 'Widget' is found at the beginning
+// console.log( str.indexOf('widget') ); // -1, not found, the search is case-sensitive
+// console.log( str.indexOf("id") ); // 1, "id" is found at the position 1 (..idget with id)
+// console.log( str.indexOf('id', 2) ) // 12
+
+// Running indexOf in loop
+// let str = 'As sly as a fox, as strong as an ox'
+// let target = 'as'
+// let pos = 0
+// while(true){
+//   let foundPos = str.indexOf(target, pos)
+//   if(foundPos == -1) break
+//   console.log(`Found at ${foundPos}`)
+//   pos = foundPos + 1
+// }
+
+/*
+let pos = -1;
+while ((pos = str.indexOf(target, pos + 1)) != -1) {
+alert( pos );
+}
+*/
+
+// includes, startsWith, endsWith
+console.log( "Widget with id".includes("Widget") ); // true
+console.log( "Hello".includes("Bye") ); // false
+console.log( "Midget".includes("id") ); // true
+console.log( "Midget".includes("id", 3) ); // false, from position 3 there is no "id"
+console.log( "Widget".startsWith("Wid") ); // true, "Widget" starts with "Wid"
+console.log( "Widget".endsWith("get") ); // true, "Widget" ends with "get"
+
+// Getting a substring
