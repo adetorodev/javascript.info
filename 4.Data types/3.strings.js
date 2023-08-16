@@ -21,6 +21,23 @@
 // World`;
 // console.log(str1 == str2); // true
 
-console.log( "\u00A9" ); // ©
-console.log( "\u{20331}" ); // 佫, a rare Chinese hieroglyph (long unicode)
-console.log( "\u{1F60D}" ); // 😍, a smiling face symbol (another long unicode)
+// console.log( "\u00A9" ); // ©
+// console.log( "\u{20331}" ); // 佫, a rare Chinese hieroglyph (long unicode)
+// console.log( "\u{1F60D}" ); // 😍, a smiling face symbol (another long unicode)
+
+// Accessing characters
+
+let str = `Hello`;
+console.log( str[0] ); // H
+console.log( str.charAt(0) ); // H
+// the last character
+
+console.log( str[1000] ); // undefined
+console.log( str.charAt(1000) ); // '' (an empty string)
+
+// We can iterate over character
+for (let char of "Hello") {
+  console.log(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+}
+
+// Strings are immutable
