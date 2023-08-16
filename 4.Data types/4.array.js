@@ -75,19 +75,41 @@
 // Methods push/pop run fast, while shift/unshift are slow.
 
 // Loop
-let arr = ["Apple", "Orange", "Pear"];
-let fruits = ["Apple", "Orange", "Pear"];
+// let arr = ["Apple", "Orange", "Pear"];
+// let fruits = ["Apple", "Orange", "Pear"];
 
-for (let i = 0; i < arr.length; i++) {
-  console.log( arr[i] );
-}
+// for (let i = 0; i < arr.length; i++) {
+//   console.log( arr[i] );
+// }
 
 // iterates over array elements
-for (let fruit of fruits) {
-    console.log( fruit );
-}
+// for (let fruit of fruits) {
+//     console.log( fruit );
+// }
 
-for (let key in arr) {
-    console.log( arr[key] ); // Apple, Orange, Pear
-} // we shouldn’t use for..in for arrays.
+// for (let key in arr) {
+//     console.log( arr[key] ); // Apple, Orange, Pear
+// } // we shouldn’t use for..in for arrays.
 // optimized for generic objects, not arrays
+
+
+// Multidimensional arrays
+
+let matrix = [
+    [1, 2, 3], // 0
+    [4, 5, 6], // 1
+//   0  1  2
+    [7, 8, 9] // 2
+];
+  
+console.log( matrix[1][1] ); // 5, the central element
+
+// toString
+let arr = [1, 2, 3];
+
+console.log( arr ); // 1,2,3
+console.log( String(arr) === '1,2,3' ); // true
+
+// Don’t compare arrays with ==
+console.log( [] == [] ); // false
+console.log( [0] == [0] ); // false
