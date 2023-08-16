@@ -69,3 +69,25 @@
 // Add a non-numeric property like arr.test = 5.
 // Make holes, like: add arr[0] and then arr[1000] (and nothing between them).
 // Fill the array in the reverse order, like arr[1000], arr[999] and so on.
+
+
+// Performance
+// Methods push/pop run fast, while shift/unshift are slow.
+
+// Loop
+let arr = ["Apple", "Orange", "Pear"];
+let fruits = ["Apple", "Orange", "Pear"];
+
+for (let i = 0; i < arr.length; i++) {
+  console.log( arr[i] );
+}
+
+// iterates over array elements
+for (let fruit of fruits) {
+    console.log( fruit );
+}
+
+for (let key in arr) {
+    console.log( arr[key] ); // Apple, Orange, Pear
+} // we shouldn’t use for..in for arrays.
+// optimized for generic objects, not arrays
