@@ -27,17 +27,27 @@
 
 // Accessing characters
 
-let str = `Hello`;
-console.log( str[0] ); // H
-console.log( str.charAt(0) ); // H
+// let str = `Hello`;
+// console.log( str[0] ); // H
+// console.log( str.charAt(0) ); // H
 // the last character
 
-console.log( str[1000] ); // undefined
-console.log( str.charAt(1000) ); // '' (an empty string)
+// console.log( str[1000] ); // undefined
+// console.log( str.charAt(1000) ); // '' (an empty string)
 
 // We can iterate over character
-for (let char of "Hello") {
-  console.log(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
-}
+// for (let char of "Hello") {
+//   console.log(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+// }
 
 // Strings are immutable
+
+// let str = 'Hi';
+// str[0] = 'h'; // error
+// console.log( str[0] ); // doesn't work
+
+// This is better
+
+let str = 'Hi';
+str = 'h' + str[1]; // replace the string
+console.log( str ); // hi
