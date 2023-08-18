@@ -15,31 +15,52 @@ map.clear() – removes everything from the map.
 map.size – returns the current element count.
 */
 
-let map = new Map();
+// let map = new Map();
 
-map.set('1', 'str1');   // a string key
-map.set(1, 'num1');     // a numeric key
-map.set(true, 'bool1'); // a boolean key
+// map.set('1', 'str1');   // a string key
+// map.set(1, 'num1');     // a numeric key
+// map.set(true, 'bool1'); // a boolean key
 
 // remember the regular Object? it would convert keys to string
 // Map keeps the type, so these two are different:
-console.log( map.get(1)   ); // 'num1'
-console.log( map.get('1') ); // 'str1'
+// console.log( map.get(1)   ); // 'num1'
+// console.log( map.get('1') ); // 'str1'
 
-console.log( map.size ); // 3
+// console.log( map.size ); // 3
 
-let john = { name: "John" };
-let ben = { name: "Ben" };
+// let john = { name: "John" };
+// let ben = { name: "Ben" };
 
 // for every user, let's store their visits count
-let visitsCountObj = {}; // trying obj
-let visitsCountMap = new Map();
+// let visitsCountObj = {}; // trying obj
+// let visitsCountMap = new Map();
 
 // john is the key for the map
-visitsCountMap.set(john, 123);
+// visitsCountMap.set(john, 123);
 
-visitsCountObj[ben] = 234; // try to use ben object as the key
-visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
+// visitsCountObj[ben] = 234; // try to use ben object as the key
+// visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
 
-console.log( visitsCountMap.get(john) ); // 123
-console.log( visitsCountObj["[object Object]"] ); // 123
+// console.log( visitsCountMap.get(john) ); // 123
+// console.log( visitsCountObj["[object Object]"] ); // 123
+
+// let recipeMap = new Map([
+//     ['cucumber', 500],
+//     ['tomatoes', 350],
+//     ['onion',    50]
+//   ]);
+  
+  // iterate over keys (vegetables)
+//   for (let vegetable of recipeMap.keys()) {
+//     console.log(vegetable); // cucumber, tomatoes, onion
+//   }
+  
+  // iterate over values (amounts)
+//   for (let amount of recipeMap.values()) {
+//     console.log(amount); // 500, 350, 50
+//   }
+  
+  // iterate over [key, value] entries
+//   for (let entry of recipeMap) { // the same as of recipeMap.entries()
+//     console.log(entry); // cucumber,500 (and so on)
+//   }
