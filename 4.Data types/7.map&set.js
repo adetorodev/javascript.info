@@ -111,20 +111,38 @@ set.size – is the elements count.
 // });
 
 // Filter unique array members
-function unique(arr) {
-  return Array.from(new Set(arr));
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
+
+// let values = [
+//   "Hare",
+//   "Krishna",
+//   "Hare",
+//   "Krishna",
+//   "Krishna",
+//   "Krishna",
+//   "Hare",
+//   "Hare",
+//   ":-O",
+// ];
+
+// console.log(unique(values));
+
+// Filter anagrams
+
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of arr) {
+    // split the word by letters, sort them and join back
+    let sorted = word.toLowerCase().split("").sort().join(""); // (*)
+    map.set(sorted, word);
+  }
+
+  return Array.from(map.values());
 }
 
-let values = [
-  "Hare",
-  "Krishna",
-  "Hare",
-  "Krishna",
-  "Krishna",
-  "Krishna",
-  "Hare",
-  "Hare",
-  ":-O",
-];
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
-console.log(unique(values));
+console.log(aclean(arr));
