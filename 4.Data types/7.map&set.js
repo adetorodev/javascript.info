@@ -1,8 +1,8 @@
 // Objects are used for storing keyed collections.
 // Arrays are used for storing ordered collections.
 
-// Map is a collection of keyed data items, just like 
-// an Object. But the main difference is that Map 
+// Map is a collection of keyed data items, just like
+// an Object. But the main difference is that Map
 // allows keys of any type.
 
 /*
@@ -49,23 +49,23 @@ map.size – returns the current element count.
 //     ['tomatoes', 350],
 //     ['onion',    50]
 //   ]);
-  
-  // iterate over keys (vegetables)
+
+// iterate over keys (vegetables)
 //   for (let vegetable of recipeMap.keys()) {
 //     console.log(vegetable); // cucumber, tomatoes, onion
 //   }
-  
-  // iterate over values (amounts)
+
+// iterate over values (amounts)
 //   for (let amount of recipeMap.values()) {
 //     console.log(amount); // 500, 350, 50
 //   }
-  
-  // iterate over [key, value] entries
+
+// iterate over [key, value] entries
 //   for (let entry of recipeMap) { // the same as of recipeMap.entries()
 //     console.log(entry); // cucumber,500 (and so on)
 //   }
 
-// A Set is a special type collection – “set of values” 
+// A Set is a special type collection – “set of values”
 // (without keys), where each value may occur only once.
 
 /*
@@ -99,12 +99,32 @@ set.size – is the elements count.
 // console.log(set)
 
 // Looping
+// We can loop over a set either with for..of or using forEach:
 
-let set = new Set(["oranges", "apples", "bananas"]);
+// let set = new Set(["oranges", "apples", "bananas"]);
 
-for (let value of set) alert(value);
+// for (let value of set) alert(value);
 
-// the same with forEach:
-set.forEach((value, valueAgain, set) => {
-  alert(value);
-});
+// // the same with forEach:
+// set.forEach((value, valueAgain, set) => {
+//   alert(value);
+// });
+
+// Filter unique array members
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+
+let values = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+console.log(unique(values));
