@@ -55,4 +55,30 @@ The result of next() must have the form {done: Boolean, value: any}, where done=
 //   alert(num); // 1, then 2, 3, 4, 5
 // }
 
+// String is iterable
 
+// For a string, for..of loops over its characters:
+
+// for (let char of "test") {
+//   // triggers 4 times: once for each character
+//   alert( char ); // t, then e, then s, then t
+// }
+
+let str = '𝒳😂';
+for (let char of str) {
+    console.log( char ); // 𝒳, and then 😂
+}
+
+
+let stri = "Hello";
+
+// does the same as
+// for (let char of str) alert(char);
+
+let iterator = stri[Symbol.iterator]();
+
+while (true) {
+  let result = iterator.next();
+  if (result.done) break;
+  console.log(result.value); // outputs characters one by one
+}
