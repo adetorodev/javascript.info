@@ -1,6 +1,6 @@
-let john = { name: "John" };
-let array = [john];
-john = null;
+// let john = { name: "John" };
+// let array = [john];
+// john = null;
 // the object previously referenced by john is stored inside the array
 // therefore it won't be garbage-collected
 // we can get it as array[0]
@@ -8,9 +8,9 @@ john = null;
 // console.log(array)
 
 // using Map
-let map = new Map();
-map.set(john, "...");
-john = null;
+// let map = new Map();
+// map.set(john, "...");
+// john = null;
 // john is stored inside the map,
 // we can get it by using map.keys()
 // console.log(map.keys())
@@ -29,10 +29,10 @@ john = null;
 // can't use a string as the key
 // weakMap.set("test", "Whoops"); // Error, because "test" is not an object
 
-let weakMap = new WeakMap();
-weakMap.set(john, "...");
+// let weakMap = new WeakMap();
+// weakMap.set(john, "...");
 
-john = null; // overwrite the reference
+// john = null; // overwrite the reference
 
 // john is removed from memory!
 
@@ -51,7 +51,7 @@ weakMap.has(key)
 
 // Use case: additional data
 // The main area of application for WeakMap is an additional data storage.
-weakMap.set(john, "secret documents");
+// weakMap.set(john, "secret documents");
 // if john dies, secret documents will be destroyed automatically
 
 // Use case: caching
@@ -86,31 +86,67 @@ obj = null;
 // but it's 0 or soon be 0
 // When obj gets garbage collected, cached data will be removed as well
 
-
 // WeakSet
 
 // It is analogous to Set, but we may only add objects to WeakSet (not primitives).
 // An object exists in the set while it is reachable from somewhere else.
 // Like Set, it supports add, has and delete, but not size, keys() and no iterations.
 
-let visitedSet = new WeakSet();
+// let visitedSet = new WeakSet();
 
-let john = { name: "John" };
-let pete = { name: "Pete" };
-let mary = { name: "Mary" };
+// let john = { name: "John" };
+// let pete = { name: "Pete" };
+// let mary = { name: "Mary" };
 
-visitedSet.add(john); // John visited us
-visitedSet.add(pete); // Then Pete
-visitedSet.add(john); // John again
+// visitedSet.add(john); // John visited us
+// visitedSet.add(pete); // Then Pete
+// visitedSet.add(john); // John again
 
 // visitedSet has 2 users now
 
 // check if John visited?
-console.log(visitedSet.has(john)); // true
+// console.log(visitedSet.has(john)); // true
 
 // check if Mary visited?
-console.log(visitedSet.has(mary)); // false
+// console.log(visitedSet.has(mary)); // false
 
-john = null;
+// john = null;
 
 // visitedSet will be cleaned automatically
+
+// Tasks
+
+let messages = [
+  { text: "Hello", from: "John" },
+  { text: "How goes?", from: "John" },
+  { text: "See you soon", from: "Alice" },
+];
+
+// Your code can access it, but the messages are managed by someone else’s
+// code. New messages are added, old ones are removed regularly by that
+// code, and you don’t know the exact moments when it happens.
+
+let readMessages = new WeakSet();
+
+// two messages have been read
+readMessages.add(messages[0]);
+readMessages.add(messages[1]);
+// readMessages has 2 elements
+
+// ...let's read the first message again!
+readMessages.add(messages[0]);
+// readMessages still has 2 unique elements
+
+// answer: was the message[0] read?
+console.log("Read message 0: " + readMessages.has(messages[0])); // true
+
+messages.shift();
+
+// now readMessages has 1 element (technically memory may be cleaned later)
+
+//   we only needed to store the “yes/no” fact. Now we need to store the
+// date, and it should only remain in memory until the message is garbage collected.
+let readMap = new WeakMap();
+
+readMap.set(messages[0], new Date(2017, 1, 1));
+// Date object we'll study later
