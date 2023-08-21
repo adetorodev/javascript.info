@@ -85,3 +85,32 @@ obj = null;
 // Can't get cache.size, as it's a WeakMap,
 // but it's 0 or soon be 0
 // When obj gets garbage collected, cached data will be removed as well
+
+
+// WeakSet
+
+// It is analogous to Set, but we may only add objects to WeakSet (not primitives).
+// An object exists in the set while it is reachable from somewhere else.
+// Like Set, it supports add, has and delete, but not size, keys() and no iterations.
+
+let visitedSet = new WeakSet();
+
+let john = { name: "John" };
+let pete = { name: "Pete" };
+let mary = { name: "Mary" };
+
+visitedSet.add(john); // John visited us
+visitedSet.add(pete); // Then Pete
+visitedSet.add(john); // John again
+
+// visitedSet has 2 users now
+
+// check if John visited?
+console.log(visitedSet.has(john)); // true
+
+// check if Mary visited?
+console.log(visitedSet.has(mary)); // false
+
+john = null;
+
+// visitedSet will be cleaned automatically
