@@ -36,3 +36,24 @@ function getFunc() {
   return func;
 }
 getFunc()(); // "test", from the Lexical Environment of getFunc
+
+// Scheduling: setTimeout and setInterval
+
+// setTimeout allows to run a function once after the interval of time.
+// ●setInterval allows to run a function regularly with the interval between the runs.
+
+// let timerId = setTimeout(func|code, [delay], [arg1], [arg2], ...)
+
+function sayHi() {
+  console.log("Hello");
+}
+console.log(setTimeout(sayHi, 1000))
+
+// Canceling with clearTimeout
+// let timerId = setTimeout(...);
+// clearTimeout(timerId);
+
+let timerId = setTimeout(() => alert("never happens"), 1000);
+console.log(timerId); // timer identifier
+clearTimeout(timerId);
+console.log(timerId); // same identifier (doesn't become null after canceling)
