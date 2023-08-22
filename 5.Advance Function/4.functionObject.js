@@ -53,7 +53,15 @@ console.log(setTimeout(sayHi, 1000))
 // let timerId = setTimeout(...);
 // clearTimeout(timerId);
 
-let timerId = setTimeout(() => alert("never happens"), 1000);
-console.log(timerId); // timer identifier
-clearTimeout(timerId);
-console.log(timerId); // same identifier (doesn't become null after canceling)
+// let timerId = setTimeout(() => alert("never happens"), 1000);
+// console.log(timerId); // timer identifier
+// clearTimeout(timerId);
+// console.log(timerId); // same identifier (doesn't become null after canceling)
+
+
+// let timerId = setInterval(func|code, [delay], [arg1], [arg2], ...)
+
+// repeat with the interval of 2 seconds
+let timerId = setInterval(() => alert('tick'), 2000);
+// after 5 seconds stop
+setTimeout(() => { clearInterval(timerId); console.log('stop'); }, 5000);
