@@ -46,8 +46,6 @@
 // let user = new User("John");
 // user.sayHi();
 
-
-
 // 1. First, a function created by class is labelled
 // by a special internal property
 // [[FunctionKind]]:"classConstructor"
@@ -58,15 +56,49 @@
 // class User {
 //   constructor() {}
 // }
-// alert(typeof User); // function
+// console.log(typeof User); // function
 // User(); // Error: Class constructor User cannot be invoked without 'new'
 
-// 2. Class methods are non-enumerable. A class definition 
-// sets enumerable flag to false for all 
+// 2. Class methods are non-enumerable. A class definition
+// sets enumerable flag to false for all
 // methods in the "prototype" .
 
-// 3. Classes always use strict . All code inside the 
+// 3. Classes always use strict . All code inside the
 // class construct is automatically in strict mode.
 
 // / Class Expression
 
+// let User = class {
+//   sayHi() {
+//     console.log("Hello");
+//   }
+// };
+// Class expression may not have name, or may have  name
+// if it has name, it is visible inside the class only
+
+// "Named Class Expression"
+// (no such term in the spec, but that's similar to Named Function Expression)
+// let Userb = class MyClass {
+//   sayHi() {
+//     console.log(MyClass); // MyClass is visible only inside the class
+//   }
+// };
+// new User().sayHi(); // works, shows MyClass definition
+// console.log(MyClass); // error, MyClass not visible outside of the class
+
+// dynamic class
+
+function makeClass(phrase) {
+  // declare a class and return it
+  return class {
+    sayHi() {
+      console.log(phrase);
+    }
+  };
+}
+// Create a new class
+let Userc = makeClass("Hello");
+new Userc().sayHi(); // Hello
+
+
+// Getters/setters, other shorthands
