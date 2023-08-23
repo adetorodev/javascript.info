@@ -55,7 +55,7 @@ class Rabbit extends Animal {
     this.hide(); // and then hide
   }
 }
-let rabbit = new Rabbit("White Rabbit");
+let rabbit = new Rabbit("White Rabbit", 10);
 rabbit.run(5); // White Rabbit runs with speed 5.
 rabbit.stop(); // White Rabbit stopped. White rabbit hides!
 
@@ -67,9 +67,15 @@ rabbit.stop(); // White Rabbit stopped. White rabbit hides!
 
 // if a class extends another class and has no constructor ,
 // then the following “empty” constructor is generated:
-class Rabbit extends Animal {
-  // generated for extending classes without own constructors
-  constructor(...args) {
-    super(...args);
-  }
-}
+// class Rabbit extends Animal {
+//   // generated for extending classes without own constructors
+//   constructor(...args) {
+//     super(...args);
+//   }
+// }
+
+
+// now fine
+// let rabbit = new Rabbit("White Rabbit", 10);
+console.log(rabbit.name); // White Rabbit
+console.log(rabbit.earLength); // 10
