@@ -41,6 +41,13 @@ let animal = new Animal("My Animal");
 // Overriding a method
 
 class Rabbit extends Animal {
+    
+  constructor(name, earLength) {
+    this.speed = 0;
+    this.name = name;
+    this.earLength = earLength;
+  }
+
   hide() {
     console.log(`${this.name} hides!`);
   }
@@ -56,3 +63,14 @@ rabbit.stop(); // White Rabbit stopped. White rabbit hides!
 // Classes provide "super" keyword for that.
 // ●super.method(...) to call a parent method.
 // ●super(...) to call a parent constructor (inside our constructor only).
+
+// Overriding constructor
+
+// if a class extends another class and has no constructor ,
+// then the following “empty” constructor is generated:
+class Rabbit extends Animal {
+  // generated for extending classes without own constructors
+  constructor(...args) {
+    super(...args);
+  }
+}
