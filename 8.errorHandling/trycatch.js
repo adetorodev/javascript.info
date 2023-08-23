@@ -54,13 +54,46 @@ details about what’s happened.
 //   }
 // }, 1000);
 
-try {
-  lalala; // error, variable is not defined!
-} catch (err) {
-  console.log(err.name); // ReferenceError
-  console.log(err.message); // lalala is not defined
-  console.log(err.stack); // ReferenceError: lalala is not defined at ...
+// try {
+//   lalala; // error, variable is not defined!
+// } catch (err) {
+//   console.log(err.name); // ReferenceError
+//   console.log(err.message); // lalala is not defined
+//   console.log(err.stack); // ReferenceError: lalala is not defined at ...
   // Can also show an error as a whole
   // The error is converted to string as "name: message"
-  console.log(err); // ReferenceError: lalala is not defined
+//   console.log(err); // ReferenceError: lalala is not defined
+// }
+
+// Throwing our own errors
+// let json = '{ "age": 30 }'; // incomplete data
+// try {
+//   let user = JSON.parse(json); // <-- no errors
+//   console.log(user.name); // no name!
+// } catch (e) {
+//   console.log("doesn't execute");
+// }
+
+// The throw operator generates an error.
+// The syntax is:
+// throw <error object>
+
+// let error = new Error("Things happen o_O");
+// console.log(error.name); // Error
+// console.log(error.message); // Things happen o_O
+
+// let error = new Error(message);
+// // or
+// let error = new SyntaxError(message);
+// let error = new ReferenceError(message);
+
+let json = '{ "age": 30 }'; // incomplete data
+try {
+  let user = JSON.parse(json); // <-- no errors
+  if (!user.name) {
+    throw new SyntaxError("Incomplete data: no name"); // (*)
+  }
+  console.log(user.name);
+} catch (e) {
+  console.log("JSON Error: " + e.message); // JSON Error: Incomplete data: no name
 }
