@@ -41,10 +41,9 @@ let animal = new Animal("My Animal");
 // Overriding a method
 
 class Rabbit extends Animal {
-    
+
   constructor(name, earLength) {
-    this.speed = 0;
-    this.name = name;
+    super(name)
     this.earLength = earLength;
   }
 
