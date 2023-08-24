@@ -24,3 +24,21 @@ loadScript(
     console.log(_); // function declared in the loaded script
   }
 );
+
+// Callback in callback
+
+loadScript("/my/script.js", function (script) {
+  alert(`Cool, the ${script.src} is loaded, let's load one more`);
+  loadScript("/my/script2.js", function (script) {
+    alert(`Cool, the second script is loaded`);
+  });
+});
+
+// one more script
+loadScript("/my/script.js", function (script) {
+  loadScript("/my/script2.js", function (script) {
+    loadScript("/my/script3.js", function (script) {
+      // ...continue after all scripts are loaded
+    });
+  });
+});
