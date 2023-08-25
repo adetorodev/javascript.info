@@ -83,9 +83,36 @@ loadScript("1.js", function (error, script) {
   }
 });
 
-
 // In the code above:
 // 1. We load 1.js , then if there’s no error.
 // 2. We load 2.js , then if there’s no error.
 // 3. We load 3.js , then if there’s no error – do something else (*) .
 // That’s sometimes called “callback hell” or “pyramid of doom.”
+
+// We can try to alleviate the problem by making every
+// action a standalone function, like this:
+
+loadScript("1.js", step1);
+function step1(error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript("2.js", step2);
+  }
+}
+function step2(error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript("3.js", step3);
+  }
+}
+function step3(error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...continue after all scripts are loaded (*)
+  }
+}
