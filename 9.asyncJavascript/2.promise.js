@@ -40,7 +40,42 @@ let promise = new Promise(function (resolve, reject) {
   setTimeout(() => resolve("…")); // ignored
 });
 
-
 // The properties state and result of the Promise object are internal. We can’t directly
 // access them from our “consuming code”. We can use the methods
 // .then / .catch / .finally for that. They are described below.
+
+// promise.then(
+//   function (result) {
+//     /* handle a successful result */
+//   },
+//   function (error) {
+//     /* handle an error */
+//   }
+// );
+
+// The first argument of .then is a function that:
+// 1. runs when the promise is resolved, and
+// 2. receives the result.
+// The second argument of .then is a function that:
+// 1. runs when the promise is rejected, and
+// 2. receives the error.
+
+// here’s a reaction to a successfully resolved promise:
+let promise = new Promise(function (resolve, reject) {
+  setTimeout(() => resolve("done!"), 1000);
+});
+// resolve runs the first function in .then
+promise.then(
+  (result) => console.log(result), // shows "done!" after 1 second
+  (error) => console.log(error) // doesn't run
+);
+
+// And in the case of a rejection – the second one:
+let promise = new Promise(function (resolve, reject) {
+  setTimeout(() => reject(new Error("Whoops!")), 1000);
+});
+// reject runs the second function in .then
+promise.then(
+  (result) => console.log(result), // doesn't run
+  (error) => console.log(error) // shows "Error: Whoops!" after 1 second
+);
