@@ -79,3 +79,33 @@ promise.then(
   (result) => console.log(result), // doesn't run
   (error) => console.log(error) // shows "Error: Whoops!" after 1 second
 );
+
+// catch
+// If we’re interested only in errors, then we can use null as the first argument: .then(null,
+// errorHandlingFunction) . Or we can use .catch(errorHandlingFunction) , which
+// is exactly the same:
+
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => reject(new Error("Whoops!")), 1000);
+});
+// .catch(f) is the same as promise.then(null, f)
+promise.catch(alert); // shows "Error: Whoops!" after 1 second
+
+// finally
+// Just like there’s a finally clause in a regular try {...} catch {...} , there’s
+// finally in promises.
+// finally is a good handler for performing cleanup, e.g. stopping our loading indicators, as
+// they are not needed anymore, no matter what the outcome is.
+
+new Promise((resolve, reject) => {
+    /* do something that takes time, and then call resolve/reject */
+})
+    // runs when the promise is settled, doesn't matter successfully or not
+    .finally(() => stop loading indicator)
+    .then(result => show result, err => show error)
+
+new Promise((resolve, reject) => {
+    setTimeout(() => resolve("result"), 2000)
+    })
+    .finally(() => console.log("Promise ready"))
+    .then(result => console.log(result)); // <-- .then handles the result
