@@ -59,3 +59,33 @@ loadScript("/my/script.js", function (error, script) {
     // script loaded successfully
   }
 });
+
+// Pyramid of Doom
+loadScript("1.js", function (error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript("2.js", function (error, script) {
+      if (error) {
+        handleError(error);
+      } else {
+        // ...
+        loadScript("3.js", function (error, script) {
+          if (error) {
+            handleError(error);
+          } else {
+            // ...continue after all scripts are loaded (*)
+          }
+        });
+      }
+    });
+  }
+});
+
+
+// In the code above:
+// 1. We load 1.js , then if there’s no error.
+// 2. We load 2.js , then if there’s no error.
+// 3. We load 3.js , then if there’s no error – do something else (*) .
+// That’s sometimes called “callback hell” or “pyramid of doom.”
