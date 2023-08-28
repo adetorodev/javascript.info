@@ -134,8 +134,22 @@ new Promise(function () {
 }).then(() => {
   // successful promise handlers, one or more
 }); // without .catch at the end!
-// In case of an error, the promise state becomes 
-// “rejected”, and the execution should jump to 
+// In case of an error, the promise state becomes
+// “rejected”, and the execution should jump to
 // the closest rejection handler
 // the error become stuck
 
+// What do you think? Will the .catch trigger? Explain your answer.
+
+new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    throw new Error("Whoops!");
+  }, 1000);
+}).catch(alert);
+
+// As said in the chapter, there’s an "implicit 
+// try..catch " around the function code. So
+// all synchronous errors are handled.
+// But here the error is generated not while the 
+// executor is running, but later. So the
+// promise can’t handle it.
