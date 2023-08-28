@@ -75,3 +75,54 @@ new Promise((resolve, reject) => {
     alert(`The unknown error has occurred: ${error}`);
     // don't return anything => execution goes the normal way
   });
+
+// Fetch error handling example
+fetch("no-such-user.json") // (*)
+  .then((response) => response.json())
+  .then((user) => fetch(`https://api.github.com/users/${user.name}`)) // (**)
+  .then((response) => response.json())
+  .catch(alert); // SyntaxError: Unexpected token < in JSON at position 0
+// ...
+
+//
+
+class HttpError extends Error {
+  // (1)
+  constructor(response) {
+    super(`${response.status} for ${response.url}`);
+    this.name = "HttpError";
+    this.response = response;
+  }
+}
+function loadJson(url) {
+  // (2)
+  return fetch(url).then((response) => {
+    if (response.status == 200) {
+      return response.json();
+    } else {
+      throw new HttpError(response);
+    }
+  });
+}
+loadJson("no-such-user.json") // (3)
+  .catch(alert); // HttpError: 404 for .../no-such-user.json
+
+// asking user to modify request if error exists
+
+function demoGithubUser() {
+  let name = prompt("Enter a name?", "iliakan");
+  return loadJson(`https://api.github.com/users/${name}`)
+    .then((user) => {
+      alert(`Full name: ${user.name}.`);
+      return user;
+    })
+    .catch((err) => {
+      if (err instanceof HttpError && err.response.status == 404) {
+        alert("No such user, please reenter.");
+        return demoGithubUser();
+      } else {
+        throw err; // (*)
+      }
+    });
+}
+demoGithubUser();
