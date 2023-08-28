@@ -126,3 +126,16 @@ function demoGithubUser() {
     });
 }
 demoGithubUser();
+
+// Unhandled rejections
+
+new Promise(function () {
+  noSuchFunction(); // Error here (no such function)
+}).then(() => {
+  // successful promise handlers, one or more
+}); // without .catch at the end!
+// In case of an error, the promise state becomes 
+// “rejected”, and the execution should jump to 
+// the closest rejection handler
+// the error become stuck
+
