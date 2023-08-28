@@ -23,22 +23,22 @@ result available to all of the subscribed code when it’s ready.
 //     ●sets state to "rejected" ,
 //     ●sets result to error .
 
-let promise = new Promise(function (resolve, reject) {
+// let promise = new Promise(function (resolve, reject) {
   // the function is executed automatically when the promise is constructed
   // after 1 second signal that the job is done with the result "done"
-  setTimeout(() => resolve("done"), 1000);
-});
+//   setTimeout(() => resolve("done"), 1000);
+// });
 
 let promise = new Promise(function (resolve, reject) {
   // after 1 second signal that the job is finished with an error
   setTimeout(() => reject(new Error("Whoops!")), 1000);
 });
 
-let promise = new Promise(function (resolve, reject) {
-  resolve("done");
-  reject(new Error("…")); // ignored
-  setTimeout(() => resolve("…")); // ignored
-});
+// let promise = new Promise(function (resolve, reject) {
+//   resolve("done");
+//   reject(new Error("…")); // ignored
+//   setTimeout(() => resolve("…")); // ignored
+// });
 
 // The properties state and result of the Promise object are internal. We can’t directly
 // access them from our “consuming code”. We can use the methods
@@ -61,35 +61,35 @@ let promise = new Promise(function (resolve, reject) {
 // 2. receives the error.
 
 // here’s a reaction to a successfully resolved promise:
-let promise = new Promise(function (resolve, reject) {
-  setTimeout(() => resolve("done!"), 1000);
-});
+// let promise = new Promise(function (resolve, reject) {
+//   setTimeout(() => resolve("done!"), 1000);
+// });
 // resolve runs the first function in .then
-promise.then(
-  (result) => console.log(result), // shows "done!" after 1 second
-  (error) => console.log(error) // doesn't run
-);
+// promise.then(
+//   (result) => console.log(result), // shows "done!" after 1 second
+//   (error) => console.log(error) // doesn't run
+// );
 
 // And in the case of a rejection – the second one:
-let promise = new Promise(function (resolve, reject) {
-  setTimeout(() => reject(new Error("Whoops!")), 1000);
-});
+// let promise = new Promise(function (resolve, reject) {
+//   setTimeout(() => reject(new Error("Whoops!")), 1000);
+// });
 // reject runs the second function in .then
-promise.then(
-  (result) => console.log(result), // doesn't run
-  (error) => console.log(error) // shows "Error: Whoops!" after 1 second
-);
+// promise.then(
+//   (result) => console.log(result), // doesn't run
+//   (error) => console.log(error) // shows "Error: Whoops!" after 1 second
+// );
 
 // catch
 // If we’re interested only in errors, then we can use null as the first argument: .then(null,
 // errorHandlingFunction) . Or we can use .catch(errorHandlingFunction) , which
 // is exactly the same:
 
-let promise = new Promise((resolve, reject) => {
-  setTimeout(() => reject(new Error("Whoops!")), 1000);
-});
+// let promise = new Promise((resolve, reject) => {
+//   setTimeout(() => reject(new Error("Whoops!")), 1000);
+// });
 // .catch(f) is the same as promise.then(null, f)
-promise.catch(alert); // shows "Error: Whoops!" after 1 second
+// promise.catch(alert); // shows "Error: Whoops!" after 1 second
 
 // finally
 // Just like there’s a finally clause in a regular try {...} catch {...} , there’s
@@ -97,15 +97,15 @@ promise.catch(alert); // shows "Error: Whoops!" after 1 second
 // finally is a good handler for performing cleanup, e.g. stopping our loading indicators, as
 // they are not needed anymore, no matter what the outcome is.
 
-new Promise((resolve, reject) => {
+// new Promise((resolve, reject) => {
     /* do something that takes time, and then call resolve/reject */
-})
+// })
     // runs when the promise is settled, doesn't matter successfully or not
-    .finally(() => stop loading indicator)
-    .then(result => show result, err => show error)
+//     .finally(() => stop loading indicator)
+//     .then(result => show result, err => show error)
 
-new Promise((resolve, reject) => {
-    setTimeout(() => resolve("result"), 2000)
-    })
-    .finally(() => console.log("Promise ready"))
-    .then(result => console.log(result)); // <-- .then handles the result
+// new Promise((resolve, reject) => {
+//     setTimeout(() => resolve("result"), 2000)
+//     })
+//     .finally(() => console.log("Promise ready"))
+//     .then(result => console.log(result)); // <-- .then handles the result
