@@ -15,3 +15,9 @@ function loadCached(url) {
       return text;
     });
 }
+
+
+// Promise.reject
+// let promise = Promise.reject(error);
+// Same as:
+// let promise = new Promise((resolve, reject) => reject(error));
